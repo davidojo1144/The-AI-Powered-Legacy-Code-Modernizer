@@ -9,18 +9,21 @@ Large enterprises spend millions manually analyzing old COBOL, Java, or .NET app
 ## 🛠️ Tech Stack
 
 ### Frontend
+
 - **Next.js** (React) with TypeScript
 - **Tailwind CSS** for modern UI
 - **Chart.js** for data visualization
 - **React Query** for API state management
 
 ### Backend
+
 - **FastAPI** for high-performance async endpoints
 - **Python** with modern async support
 - **PostgreSQL** for data storage
 - **Redis** for caching and job queues
 
 ### AI/ML
+
 - **LangChain** for workflow orchestration
 - **Tree-sitter** for code parsing into ASTs
 - **Ollama** for local AI models (Llama 3, CodeQwen)
@@ -29,18 +32,21 @@ Large enterprises spend millions manually analyzing old COBOL, Java, or .NET app
 ## ✨ Key Features
 
 ### Code Analysis
+
 - **Multi-language Support**: Java, JavaScript, Python, C#, COBOL
 - **AST Parsing**: Deep semantic understanding of code structure
 - **Dependency Mapping**: Visualize tight couplings and architecture
 - **Security Scanning**: Identify vulnerabilities and code smells
 
 ### AI-Powered Recommendations
+
 - **Scanner Agent**: Identifies frameworks and deprecated libraries
 - **Dependency Mapper**: Visualizes tight couplings that make migration hard
 - **Cloud-Readiness Agent**: Suggests specific cloud-native patterns
 - **Diff-Style Reports**: Interactive PR-style recommendations
 
 ### Dashboard Features
+
 - **Real-time Progress**: Track analysis progress
 - **Interactive Visualizations**: Charts, graphs, and dependency maps
 - **Export Options**: PDF reports, JSON data, Figma integration
@@ -72,6 +78,7 @@ Large enterprises spend millions manually analyzing old COBOL, Java, or .NET app
 ## 🚀 Getting Started
 
 ### Prerequisites
+
 - Node.js 18+
 - Python 3.9+
 - PostgreSQL 14+
@@ -81,12 +88,14 @@ Large enterprises spend millions manually analyzing old COBOL, Java, or .NET app
 ### Installation
 
 1. **Clone the repository**
+
    ```bash
-   git clone https://github.com/davidojo1144/legacy-code-modernizer.git
-   cd legacy-code-modernizer
+   git clone https://github.com/davidojo1144/The-AI-Powered-Legacy-Code-Modernizer.git
+   cd The-AI-Powered-Legacy-Code-Modernizer
    ```
 
 2. **Setup Backend**
+
    ```bash
    cd backend
    python -m venv venv
@@ -95,6 +104,7 @@ Large enterprises spend millions manually analyzing old COBOL, Java, or .NET app
    ```
 
 3. **Setup Frontend**
+
    ```bash
    cd ../frontend
    npm install
@@ -104,10 +114,11 @@ Large enterprises spend millions manually analyzing old COBOL, Java, or .NET app
    Create `.env` files in both frontend and backend directories with necessary configurations.
 
 5. **Start Services**
+
    ```bash
    # Start backend
    cd backend && python main.py
-   
+
    # Start frontend
    cd frontend && npm run dev
    ```
@@ -123,18 +134,21 @@ Large enterprises spend millions manually analyzing old COBOL, Java, or .NET app
 ## 🔧 Development
 
 ### Backend Development
+
 - FastAPI with async/await for high performance
 - SQLAlchemy for database ORM
 - Celery for background task processing
 - LangChain for AI agent orchestration
 
 ### Frontend Development
+
 - Next.js 14 with App Router
 - TypeScript for type safety
 - Tailwind CSS for styling
 - React Query for API state management
 
 ### AI Integration
+
 - Ollama for local AI model hosting
 - LangChain for agent workflows
 - Tree-sitter for multi-language parsing
