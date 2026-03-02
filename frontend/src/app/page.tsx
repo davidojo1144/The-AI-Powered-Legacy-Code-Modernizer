@@ -2,6 +2,7 @@
  
 import { useState, useCallback } from 'react';
 import { Upload, FileText, BarChart3, Cloud, Code, Zap } from 'lucide-react';
+import { SplineSceneBasic } from '@/components/ui/demo';
 
 interface Analysis {
   id: string;
@@ -347,6 +348,11 @@ export default function Home() {
               </button>
             </div>
           </div>
+        </div>
+
+        {/* 3D Demo */}
+        <div className="mb-12">
+          <SplineSceneBasic />
         </div>
 
         {/* Recent Analyses */}
