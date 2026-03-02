@@ -1,3 +1,5 @@
+ 'use client';
+ 
 import { useState, useCallback } from 'react';
 import { Upload, FileText, BarChart3, Cloud, Code, Zap } from 'lucide-react';
 

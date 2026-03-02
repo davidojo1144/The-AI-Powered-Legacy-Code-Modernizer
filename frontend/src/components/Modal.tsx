@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useRef, useEffect } from 'react';
 
 interface ModalProps {
   isOpen: boolean;
@@ -21,15 +21,12 @@ const Modal: React.FC<ModalProps> = ({
   showCloseButton = true,
   backdropClose = true,
 }) => {
-  const [isVisible, setIsVisible] = useState(false);
   const modalRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (isOpen) {
-      setIsVisible(true);
       document.body.style.overflow = 'hidden';
     } else {
-      setIsVisible(false);
       document.body.style.overflow = 'unset';
     }
 
@@ -56,12 +53,10 @@ const Modal: React.FC<ModalProps> = ({
     xl: 'max-w-2xl',
   };
 
-  if (!isOpen && !isVisible) return null;
-
   return (
     <div
       className={`fixed inset-0 z-50 flex items-center justify-center transition-opacity duration-300 ${
-        isOpen ? 'opacity-100' : 'opacity-0'
+        isOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'
       }`}
       onClick={backdropClose ? onClose : undefined}
     >
@@ -70,7 +65,7 @@ const Modal: React.FC<ModalProps> = ({
       <div
         ref={modalRef}
         className={`relative bg-slate-900/95 backdrop-blur-lg border border-white/20 rounded-xl shadow-2xl transform transition-all duration-300 ${
-          isOpen ? 'scale-100 opacity-100' : 'scale-95 opacity-0'
+          isOpen ? 'scale-100 opacity-100' : 'scale-95 opacity-0 pointer-events-none'
         } ${sizeClasses[size]} w-full mx-4 ${className}`}
         onClick={(e) => e.stopPropagation()}
       >
