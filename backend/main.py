@@ -10,6 +10,10 @@ import json
 import os
 import tempfile
 from pathlib import Path
+try:
+    import ollama as _ollama
+except Exception:
+    _ollama = None
 
 # LangChain imports
 from langchain.agents import AgentExecutor, create_react_agent
@@ -26,7 +30,7 @@ import tree_sitter_python
 import tree_sitter_c_sharp
 
 # Database models
-from models import (
+from backend.models import (
     Analysis, AnalysisFile, Finding, Recommendation, Dependency, CodeMetric,
     create_database_engine, create_session_local, create_tables, get_db
 )
@@ -83,6 +87,14 @@ class AnalysisResponse(BaseModel):
     created_at: datetime
     findings: List[Dict[str, Any]] = []
     recommendations: List[Dict[str, Any]] = []
+
+class OllamaGenerateRequest(BaseModel):
+    model: str = "llama3.2"
+    prompt: str
+
+class OllamaGenerateResponse(BaseModel):
+    model: str
+    output: str
 
 class CodeAnalysisTool:
     """Tree-sitter based code analysis tool"""
@@ -634,6 +646,26 @@ async def list_analyses(db: Session = Depends(get_database)):
 async def health_check():
     """Health check endpoint"""
     return {"status": "healthy", "timestamp": datetime.utcnow()}
+
+@app.get("/api/ollama/health")
+async def ollama_health():
+    if _ollama is None:
+        return {"available": False, "error": "ollama package not installed", "models": []}
+    try:
+        models = _ollama.list().get("models", [])
+        return {"available": True, "error": None, "models": [m.get("model") for m in models]}
+    except Exception as e:
+        return {"available": False, "error": str(e), "models": []}
+
+@app.post("/api/ollama/generate", response_model=OllamaGenerateResponse)
+async def ollama_generate(req: OllamaGenerateRequest):
+    if _ollama is None:
+        raise HTTPException(status_code=500, detail="ollama package not installed")
+    try:
+        result = _ollama.generate(model=req.model, prompt=req.prompt)
+        return OllamaGenerateResponse(model=req.model, output=result.get("response", ""))
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
 
 if __name__ == "__main__":
     import uvicorn

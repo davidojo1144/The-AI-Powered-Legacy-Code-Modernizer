@@ -10,15 +10,14 @@ alembic==1.13.1
 
 # AI/ML
 langchain==0.1.0
-langchain-community==0.1.0
-langchain-core==0.1.0
+ollama>=0.6.1
 
 # Code Parsing
 tree-sitter==0.20.4
-tree-sitter-java==0.20.2
-tree-sitter-javascript==0.20.1
-tree-sitter-python==0.20.4
-tree-sitter-c-sharp==0.20.0
+tree-sitter-java>=0.23.0
+tree-sitter-javascript>=0.23.0
+tree-sitter-python>=0.23.0
+tree-sitter-c-sharp>=0.23.0
 
 # Data Processing
 pydantic==2.5.2
@@ -28,8 +27,6 @@ python-multipart==0.0.6
 # Utilities
 python-dotenv==1.0.0
 aiofiles==23.2.1
-asyncio==3.4.3
-uuid==1.30
 
 # Development
 pytest==7.4.3
