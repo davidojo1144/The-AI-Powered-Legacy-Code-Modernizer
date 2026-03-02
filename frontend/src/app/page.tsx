@@ -131,11 +131,11 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen overflow-x-hidden">
       {/* Header */}
       <header className="bg-white/10 backdrop-blur-md border-b border-white/20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center py-6">
+          <div className="flex justify-between items-center py-4 sm:py-6">
             <div className="flex items-center space-x-4">
               <div className="bg-gradient-to-r from-blue-500 to-purple-600 p-2 rounded-lg">
                 <Code className="h-8 w-8 text-white" />
@@ -145,12 +145,17 @@ export default function Home() {
                 <p className="text-sm text-gray-300">AI-powered legacy code analysis</p>
               </div>
             </div>
-            <nav className="flex space-x-8">
+            <nav className="hidden md:flex md:flex-wrap md:space-x-6">
               <a href="#" className="text-white hover:text-blue-300 transition-colors">Dashboard</a>
               <a href="#" className="text-white hover:text-blue-300 transition-colors">Analyses</a>
               <a href="#" className="text-white hover:text-blue-300 transition-colors">Reports</a>
               <a href="#" className="text-white hover:text-blue-300 transition-colors">Settings</a>
             </nav>
+            <button className="md:hidden text-white/80 hover:text-white transition-colors" aria-label="Open navigation">
+              <svg className="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16"/>
+              </svg>
+            </button>
           </div>
         </div>
       </header>
@@ -159,10 +164,10 @@ export default function Home() {
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Hero Section */}
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-white mb-4">
+          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
             Transform Your Legacy Code with AI
           </h2>
-          <p className="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
+          <p className="text-base sm:text-lg md:text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
             Upload your legacy codebase and get comprehensive analysis with AI-powered modernization recommendations. 
             Save millions in assessment time with our automated consultant-in-a-box.
           </p>
@@ -194,7 +199,7 @@ export default function Home() {
         </div>
 
         {/* Analysis Form */}
-        <div className="bg-white/10 backdrop-blur-md rounded-2xl p-8 mb-12 border border-white/20">
+        <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 sm:p-8 mb-12 border border-white/20">
           <h3 className="text-2xl font-bold text-white mb-6 flex items-center">
             <Upload className="h-6 w-6 mr-3 text-blue-400" />
             Start New Analysis
@@ -266,7 +271,7 @@ export default function Home() {
             {/* File Upload */}
             <div className="space-y-6">
               <div
-                className={`border-2 border-dashed rounded-lg p-8 text-center transition-all ${
+                className={`border-2 border-dashed rounded-lg p-6 sm:p-8 text-center transition-all ${
                   isDragging
                     ? 'border-blue-400 bg-blue-500/10'
                     : 'border-white/30 hover:border-white/50'
@@ -290,7 +295,7 @@ export default function Home() {
                   />
                   <label
                     htmlFor="file-upload"
-                    className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg cursor-pointer transition-colors"
+                    className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg cursor-pointer transition-colors text-sm sm:text-base"
                   >
                     Choose Files
                   </label>
@@ -409,7 +414,7 @@ export default function Home() {
       </main>
 
       {/* Footer */}
-      <footer className="bg-white/5 backdrop-blur-md border-t border-white/20 mt-16">
+      <footer className="bg-white/5 backdrop-blur-md border-t border-white/20 mt-8 sm:mt-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
           <div className="text-center">
             <p className="text-gray-400">
