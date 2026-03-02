@@ -52,7 +52,8 @@ app.add_middleware(
 )
 
 # Database setup
-DATABASE_URL = os.getenv("DATABASE_URL", "postgresql://user:password@localhost/legacy_code_modernizer")
+# Default to SQLite for local/dev to avoid requiring Postgres
+DATABASE_URL = os.getenv("DATABASE_URL", "sqlite:///./local_dev.db")
 engine = create_database_engine(DATABASE_URL)
 SessionLocal = create_session_local(engine)
 

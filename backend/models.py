@@ -117,6 +117,8 @@ class CodeMetric(Base):
 # Database connection utilities
 def create_database_engine(database_url: str):
     """Create database engine"""
+    if database_url.startswith("sqlite"):
+        return create_engine(database_url, connect_args={"check_same_thread": False})
     return create_engine(database_url)
 
 def create_session_local(engine):
